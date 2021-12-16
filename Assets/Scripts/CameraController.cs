@@ -12,7 +12,6 @@ public class CameraController : MonoBehaviour
     {
         StartCoroutine(WaitForPlayer());
     }
-
     private IEnumerator WaitForPlayer()
     {
         while (playerTransform == null)

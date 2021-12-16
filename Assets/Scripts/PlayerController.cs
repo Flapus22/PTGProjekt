@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     {
         //rigidbody = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
-
     }
     void Update()
     {
@@ -28,7 +27,5 @@ public class PlayerController : MonoBehaviour
         //rigidbody.MovePosition(position);
 
         controller.Move(position);
-        
-        
     }
 }
