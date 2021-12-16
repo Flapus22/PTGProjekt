@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private Transform playerTransform;
+    public Transform playerTransform;
     public Vector3 offset;
+    Vector3 moveCamera;
 
-    private bool isPlayerFound = false;
     private void Start()
     {
-        StartCoroutine(WaitForPlayer());
+        //moveCamera = offset;
+        //transform.Translate(moveCamera);
     }
-    private IEnumerator WaitForPlayer()
+
+    private void LateUpdate()
     {
-        while (playerTransform == null)
-        {
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-            yield return null;
-        }
-        isPlayerFound = true;
-    }
-    private void Update()
-    {
-        if (isPlayerFound)
-        {
-            transform.position = playerTransform.position + offset;
-        }
+        //    moveCamera = playerTransform.position * Time.deltaTime;
+        //    transform.Translate(moveCamera);
+        transform.position = playerTransform.position + offset;
     }
 }
