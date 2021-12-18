@@ -7,11 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rigidbody { get; set; }
     public float speed = 10;
-    CharacterController controller;
     private bool canJump = true;
+    public float jumpHigh = 2;
+
+    //narazie nie wykorzystywane 
     float timeToJump = 3;
     float time = 0;
-    float jumpHigh = 2;
 
     Vector3 move = new Vector3();
     void Start()
@@ -24,7 +25,8 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //tymczasowo do zmiany postaæ bêdzie siê obracaæ potem 
+        //Tymczasowo do zmiany postaæ bêdzie siê obracaæ potem 
+        //mo¿liwe ¿e nie potrzebna zmianna sam model siê bedzie obracaæ
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 0.5f) && move.x > 0)
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             move.y -= Time.deltaTime * 3;
         }
-        if (move.y < 0) move.y = 0;
+        else if (move.y < 0) move.y = 0;
 
     }
     void OnMove(InputValue value)
@@ -52,31 +54,16 @@ public class PlayerController : MonoBehaviour
         Vector2 movmentVector = value.Get<Vector2>();
         move.x = movmentVector.x;
     }
-    void OnJump(/*InputValue value*/)
+    void OnJump()
     {
         if (canJump)
         {
-            move.y = jumpHigh;
+            Jump(jumpHigh);
             canJump = false;
-            time = timeToJump;
         }
     }
-    void SetJumpValue(float jumpHigh)
+    public void Jump(float jumpHigh)
     {
-        this.jumpHigh = jumpHigh;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Barrel")
-        {
-            SetJumpValue(12);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Barrel")
-        {
-            SetJumpValue(2);
-        }
+        move.y = jumpHigh;
     }
 }

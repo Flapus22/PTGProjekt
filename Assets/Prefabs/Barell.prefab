@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1955212002171965425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3154611016047440844}
+  - component: {fileID: 5896904985937161179}
+  - component: {fileID: 3219628511870512098}
+  m_Layer: 0
+  m_Name: JumpColider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3154611016047440844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955212002171965425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5151795445286004208}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5896904985937161179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955212002171965425}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015, y: 0.02806256, z: 0.025}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3219628511870512098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955212002171965425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223bdaba4799ac04f823fd2952b17ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highJump: 5
 --- !u!1 &5491306341082283850
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,10 +70,9 @@ GameObject:
   - component: {fileID: 5151795445286004208}
   - component: {fileID: 8129280160557984341}
   - component: {fileID: 6284199840987520671}
-  - component: {fileID: -6990944127997745904}
-  - component: {fileID: -1678018235905441068}
+  - component: {fileID: 2218299456200703699}
   m_Layer: 0
-  m_Name: beczka
+  m_Name: Barell
   m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,9 +87,10 @@ Transform:
   m_GameObject: {fileID: 5491306341082283850}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -5.1398363, y: 0.5, z: -0.04803419}
-  m_LocalScale: {x: 75, y: 75, z: 75}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 3154611016047440844}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -86,7 +145,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-6990944127997745904
+--- !u!65 &2218299456200703699
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,18 +156,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.026571754, y: 0.025821248, z: 0.019999996}
+  m_Size: {x: 0.025, y: 0.025, z: 0.025}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &-1678018235905441068
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5491306341082283850}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.026571753, y: 0.025821246, z: 0}
-  m_Center: {x: 0, y: 0, z: 0.0101}
