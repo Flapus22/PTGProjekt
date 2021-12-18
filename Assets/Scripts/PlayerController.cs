@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private bool canJump = true;
     float timeToJump = 3;
     float time = 0;
+    float jumpHigh = 2;
 
     Vector3 move = new Vector3();
     void Start()
@@ -55,9 +56,27 @@ public class PlayerController : MonoBehaviour
     {
         if (canJump)
         {
-            move.y = 2;
+            move.y = jumpHigh;
             canJump = false;
             time = timeToJump;
+        }
+    }
+    void SetJumpValue(float jumpHigh)
+    {
+        this.jumpHigh = jumpHigh;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Barrel")
+        {
+            SetJumpValue(12);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Barrel")
+        {
+            SetJumpValue(2);
         }
     }
 }

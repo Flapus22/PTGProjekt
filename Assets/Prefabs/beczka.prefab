@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 5151795445286004208}
   - component: {fileID: 8129280160557984341}
   - component: {fileID: 6284199840987520671}
+  - component: {fileID: -6990944127997745904}
+  - component: {fileID: -1678018235905441068}
   m_Layer: 0
   m_Name: beczka
-  m_TagString: Untagged
+  m_TagString: Barrel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 5491306341082283850}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -5.1398363, y: 0.5, z: -0.04803419}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 75, y: 75, z: 75}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,3 +86,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-6990944127997745904
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491306341082283850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026571754, y: 0.025821248, z: 0.019999996}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &-1678018235905441068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491306341082283850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026571753, y: 0.025821246, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.0101}
