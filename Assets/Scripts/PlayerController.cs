@@ -5,23 +5,31 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody rigidbody { get; set; }
+    //public Rigidbody rigidbody { get; set; }
     public float speed = 10;
     private bool canJump = true;
+    private bool canRight = true;
+    private bool canLeft = true;
+
     public float jumpHigh = 2;
 
     //narazie nie wykorzystywane 
     float timeToJump = 3;
     float time = 0;
 
+    float distanceObjectRight;
+    float distanceObjectLeft;
+
     Vector3 move = new Vector3();
+
     void Start()
     {
         //playerInput = GetComponent<PlayerInput>();
     }
     void Update()
     {
-        transform.Translate(move * Time.deltaTime * speed);
+        var tempMove = Move();
+        transform.Translate(tempMove * Time.deltaTime * speed);
     }
     private void FixedUpdate()
     {
@@ -29,16 +37,26 @@ public class PlayerController : MonoBehaviour
         //mo¿liwe ¿e nie potrzebna zmianna sam model siê bedzie obracaæ
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 0.5f) && move.x > 0)
-        {
-            move.x = 0;
-        }
-        else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 0.5f) && move.x < 0)
-        {
-            move.x = 0;
-        }
+        canRight = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 0.5f);
+        canLeft = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 0.5f);
+        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 5f);
+        distanceObjectRight = hit.distance;
+        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 5f);
+        distanceObjectLeft = hit.distance;
+
+        //if () && move.x > 0)
+        //{
+        //    move.x = 0;
+        //}
+        //else if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 0.5f) && move.x < 0)
+        //{
+        //    move.x = 0;
+        //}
         canJump = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 0.55f);
-       
+
+        Debug.Log("Lewo" + distanceObjectLeft);
+        Debug.Log("Prawo" + distanceObjectRight);
+
     }
     private void LateUpdate()
     {
@@ -47,20 +65,27 @@ public class PlayerController : MonoBehaviour
             move.y -= Time.deltaTime * 3;
         }
         else if (move.y < 0) move.y = 0;
-
     }
     void OnMove(InputValue value)
     {
         Vector2 movmentVector = value.Get<Vector2>();
         move.x = movmentVector.x;
+        Debug.Log("Dzia³a");
     }
     void OnJump()
     {
         if (canJump)
         {
             Jump(jumpHigh);
-            canJump = false;
         }
+    }
+    Vector3 Move()
+    {
+        var result = new Vector3();
+        result = move;
+        if (canLeft && move.x < 0) result.x = 0;
+        if (canRight && move.x > 0) result.x = 0;
+        return result;
     }
     public void Jump(float jumpHigh)
     {
