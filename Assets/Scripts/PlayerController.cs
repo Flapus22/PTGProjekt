@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     //public Rigidbody rigidbody { get; set; }
     public float speed = 10;
+    public float dashDistance = 20;
+
     private bool canJump = true;
     private bool canRight = true;
     private bool canLeft = true;
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
     float distanceObjectLeft;
 
     Vector3 move = new Vector3();
+    float dash;
 
     void Start()
     {
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         var tempMove = Move();
-        transform.Translate(tempMove * Time.deltaTime * speed);
+        transform.Translate(tempMove * Time.deltaTime);
     }
     private void FixedUpdate()
     {
@@ -39,10 +42,10 @@ public class PlayerController : MonoBehaviour
 
         canRight = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 0.5f);
         canLeft = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 0.5f);
-        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 5f);
-        distanceObjectRight = hit.distance;
-        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 5f);
-        distanceObjectLeft = hit.distance;
+        //Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 5f);
+        //distanceObjectRight = hit.distance;
+        //Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 5f);
+        //distanceObjectLeft = hit.distance;
 
         //if () && move.x > 0)
         //{
@@ -54,8 +57,8 @@ public class PlayerController : MonoBehaviour
         //}
         canJump = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 0.55f);
 
-        Debug.Log("Lewo" + distanceObjectLeft);
-        Debug.Log("Prawo" + distanceObjectRight);
+        //Debug.Log("Lewo" + distanceObjectLeft);
+        //Debug.Log("Prawo" + distanceObjectRight);
 
     }
     private void LateUpdate()
@@ -70,7 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movmentVector = value.Get<Vector2>();
         move.x = movmentVector.x;
-        Debug.Log("Dzia³a");
+        //Debug.Log("Dzia³a");
     }
     void OnJump()
     {
@@ -79,10 +82,19 @@ public class PlayerController : MonoBehaviour
             Jump(jumpHigh);
         }
     }
+
+    void OnDash(InputValue value)
+    {
+        dash = dashDistance * value.Get<float>();
+        if (move.x < 0) dash *= -1 ;
+        //Debug.Log(dash);
+    }
+
     Vector3 Move()
     {
         var result = new Vector3();
-        result = move;
+        result = move * speed;
+        result.x += dash;
         if (canLeft && move.x < 0) result.x = 0;
         if (canRight && move.x > 0) result.x = 0;
         return result;
