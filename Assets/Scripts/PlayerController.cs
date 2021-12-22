@@ -7,13 +7,19 @@ public class PlayerController : MonoBehaviour
 {
     //public Rigidbody rigidbody { get; set; }
     public float speed = 10;
-    public float dashDistance = 20;
+    public float dashDistance = 10;
 
     private bool canJump = true;
     private bool canRight = true;
     private bool canLeft = true;
+    private bool ifAim = true;
 
     public float jumpHigh = 2;
+
+    Vector3 move = new Vector3();
+    float dash;
+    Vector3 mousePosition = new Vector3();
+    public SphereCollider spher;
 
     //narazie nie wykorzystywane 
     float timeToJump = 3;
@@ -22,18 +28,17 @@ public class PlayerController : MonoBehaviour
     float distanceObjectRight;
     float distanceObjectLeft;
 
-    Vector3 move = new Vector3();
-    float dash;
-
     void Start()
     {
         //playerInput = GetComponent<PlayerInput>();
     }
+
     void Update()
     {
         var tempMove = Move();
         transform.Translate(tempMove * Time.deltaTime);
     }
+
     private void FixedUpdate()
     {
         //Tymczasowo do zmiany postaæ bêdzie siê obracaæ potem 
@@ -42,11 +47,12 @@ public class PlayerController : MonoBehaviour
 
         canRight = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 0.5f);
         canLeft = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 0.5f);
+        canJump = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 0.60f);
+
         //Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 5f);
         //distanceObjectRight = hit.distance;
         //Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 5f);
         //distanceObjectLeft = hit.distance;
-
         //if () && move.x > 0)
         //{
         //    move.x = 0;
@@ -55,12 +61,10 @@ public class PlayerController : MonoBehaviour
         //{
         //    move.x = 0;
         //}
-        canJump = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 0.55f);
-
         //Debug.Log("Lewo" + distanceObjectLeft);
         //Debug.Log("Prawo" + distanceObjectRight);
-
     }
+
     private void LateUpdate()
     {
         if (move.y > 0)
@@ -69,12 +73,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (move.y < 0) move.y = 0;
     }
+
     void OnMove(InputValue value)
     {
         Vector2 movmentVector = value.Get<Vector2>();
         move.x = movmentVector.x;
-        //Debug.Log("Dzia³a");
     }
+
     void OnJump()
     {
         if (canJump)
@@ -87,9 +92,18 @@ public class PlayerController : MonoBehaviour
     {
         dash = dashDistance * value.Get<float>();
         if (move.x < 0) dash *= -1 ;
-        //Debug.Log(dash);
     }
 
+    void OnMousePosition(InputValue value)
+    {
+        mousePosition.x = value.Get<Vector2>().x;
+        mousePosition.y = value.Get<Vector2>().y;
+    }
+
+    void OnAim(InputValue value)
+    {
+        
+    }
 
     Vector3 Move()
     {
@@ -100,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (canRight && move.x > 0) result.x = 0;
         return result;
     }
+
     public void Jump(float jumpHigh)
     {
         move.y = jumpHigh;
