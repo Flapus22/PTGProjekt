@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10;
     public float dashDistance = 10;
 
-    private bool canJump = true;
+    public bool canJump = true;
     private bool canRight = true;
     private bool canLeft = true;
     private bool ifAim = true;
@@ -20,11 +20,9 @@ public class PlayerController : MonoBehaviour
     float dash;
     Vector3 mousePosition = new Vector3();
     public SphereCollider spher;
+    public GameObject throwPrefab;
 
     //narazie nie wykorzystywane 
-    float timeToJump = 3;
-    float time = 0;
-
     float distanceObjectRight;
     float distanceObjectLeft;
 
@@ -47,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
         canRight = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 0.5f);
         canLeft = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 0.5f);
-        canJump = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 0.60f);
+        //canJump = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 0.60f);
 
         //Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 5f);
         //distanceObjectRight = hit.distance;
@@ -102,7 +100,9 @@ public class PlayerController : MonoBehaviour
 
     void OnAim(InputValue value)
     {
-        
+        var temp = transform.position + spher.bounds.size;
+        temp.z = 0;
+        Instantiate(throwPrefab,temp,Quaternion.identity);
     }
 
     Vector3 Move()
