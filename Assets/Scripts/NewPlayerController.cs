@@ -11,6 +11,8 @@ public class NewPlayerController : MonoBehaviour
 
     public bool canJump = true;
     private bool ifAim = true;
+    private Stats playerStats;
+    public bool isAlive;
 
     public float jumpHigh = 1;
     public float moveDown = 0;
@@ -25,6 +27,7 @@ public class NewPlayerController : MonoBehaviour
 
     void Start()
     {
+        playerStats = new Stats();
         characterController = GetComponent<CharacterController>();
     }
 
@@ -47,6 +50,21 @@ public class NewPlayerController : MonoBehaviour
             {
                 move.y -= Time.deltaTime * 3;
             }
+        }
+    }
+    public void Die()
+    {
+        isAlive = false;
+        GetComponent<Renderer>().enabled = false;
+    }
+
+    public void GetHit(float dmg)
+    {
+        playerStats.Health -= Mathf.Clamp(dmg - playerStats.Defense, 0, dmg);
+        Debug.Log("Hit");
+        if(playerStats.Health <= 0)
+        {
+            Die();
         }
     }
 
