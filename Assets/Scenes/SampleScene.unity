@@ -451,6 +451,7 @@ MonoBehaviour:
   speed: 10
   dashDistance: 10
   canJump: 1
+  isAlive: 1
   jumpHigh: 1.3
   moveDown: 0
   spher: {fileID: 0}
