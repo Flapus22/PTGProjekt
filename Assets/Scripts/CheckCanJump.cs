@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckCanJump : MonoBehaviour
 {
-    public NewPlayerController player;
+    public PlayerController player;
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Moge skakaæ");
@@ -12,18 +12,17 @@ public class CheckCanJump : MonoBehaviour
         if (other.tag != "Enemy")
         {
             player.canJump = true;
-
         }
     }
     private void OnTriggerExit(Collider other)
     {
-            Debug.Log("Nie Moge skakaæ");
-        
+        Debug.Log("Nie Moge skakaæ");
+
         if (!other.tag.Equals("Enemy") && !other.tag.Equals("Player"))
         {
             player.canJump = false;
         }
     }
 
-    
+
 }
