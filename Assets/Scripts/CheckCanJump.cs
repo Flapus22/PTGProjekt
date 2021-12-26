@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class CheckCanJump : MonoBehaviour
 {
-    public PlayerController player;
+    public NewPlayerController player;
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Moge skakaæ");
+
         if (other.tag != "Enemy")
         {
             player.canJump = true;
-            Debug.Log("Moge skakaæ");
 
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Enemy")
+            Debug.Log("Nie Moge skakaæ");
+        
+        if (!other.tag.Equals("Enemy") && !other.tag.Equals("Player"))
         {
             player.canJump = false;
-            Debug.Log("Nie Moge skakaæ");
         }
     }
+
+    
 }

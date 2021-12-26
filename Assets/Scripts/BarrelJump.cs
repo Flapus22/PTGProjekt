@@ -10,7 +10,7 @@ public class BarrelJump : MonoBehaviour
         Debug.Log("Wszed³em");
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerController>().Jump(highJump);
+            other.GetComponent<NewPlayerController>().Jump(highJump);
         }
     }
 }
