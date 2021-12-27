@@ -1325,9 +1325,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5797441047208412429, guid: 8da83235268219746a086c79149ac46b, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4051473783064203087, guid: 8da83235268219746a086c79149ac46b, type: 3}
+      propertyPath: m_Height
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: -4051473783064203087, guid: 8da83235268219746a086c79149ac46b, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4051473783064203087, guid: 8da83235268219746a086c79149ac46b, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3948309657750116049, guid: 8da83235268219746a086c79149ac46b, type: 3}
       propertyPath: m_Name
       value: HeadEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969944571616536446, guid: 8da83235268219746a086c79149ac46b, type: 3}
+      propertyPath: cooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3969944571616536446, guid: 8da83235268219746a086c79149ac46b, type: 3}
       propertyPath: howClose
@@ -1343,7 +1363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4431795034551012459, guid: 8da83235268219746a086c79149ac46b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.53
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 4431795034551012459, guid: 8da83235268219746a086c79149ac46b, type: 3}
       propertyPath: m_LocalPosition.z

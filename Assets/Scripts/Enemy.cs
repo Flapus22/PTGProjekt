@@ -29,16 +29,16 @@ public class Enemy : MonoBehaviour
             GetComponent<CharacterController>().Move(transform.forward * moveSpeed * Time.deltaTime);
         }
 
+        if (dist <= 1f && !isHit && isPlayerAlive)
+        {
+            isHit = true;
+            player.GetComponent<NewPlayerController>().GetHit(20);
+        }
+
         if ((lastAttackedAt += Time.deltaTime) >= cooldown)
         {
             lastAttackedAt = 0.0f;
             isHit = false;
-        }
-
-        if (dist <= 1f && !isHit && isPlayerAlive)
-        {
-            player.GetComponent<NewPlayerController>().GetHit(20);
-            isHit = true;
         }
     }
 }
