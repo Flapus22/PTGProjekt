@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         if(dist <= howClose && isPlayerAlive)
         {
             transform.LookAt(player);
-            GetComponent<Rigidbody>().AddForce(transform.forward * moveSpeed);
+            GetComponent<CharacterController>().Move(transform.forward * moveSpeed * Time.deltaTime);
         }
 
         if ((lastAttackedAt += Time.deltaTime) >= cooldown)
