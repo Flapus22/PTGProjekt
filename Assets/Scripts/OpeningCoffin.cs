@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class OpeningChest : MonoBehaviour
+public class OpeningCoffin : MonoBehaviour
 {
-    public float openingSpeed = 555f;
-
+    public float openingSpeed = 0.01f;
     private void OnTriggerEnter(Collider other) //trzeba siê upewniæ, ¿e przeciwnicy tego nie zaktywuj¹
     {
-        transform.Rotate(Vector3.right, -10f); //-openingSpeed* Time.deltaTime); //trzeba zrobiæ aby powoli siê otwiera³o do k¹ta -55, 
+        transform.Translate(Vector3.right * openingSpeed * Time.deltaTime, Space.World);    //jak zrobiæ by siê przesunê³o p³ynnie, to samo w skrzyni
         GetComponent<Collider>().enabled = false;
     }
 }
