@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class NewPlayerController : MonoBehaviour
 {
     //public Rigidbody rigidbody { get; set; }
+    public HealthBar healthBar;
     public float speed = 10;
     public float dashDistance = 10;
 
@@ -29,6 +30,7 @@ public class NewPlayerController : MonoBehaviour
     {
         playerStats = new Stats();
         characterController = GetComponent<CharacterController>();
+        healthBar.SetMaxHealth((int)playerStats.MaxHealth);
     }
 
     void Update()
@@ -61,6 +63,7 @@ public class NewPlayerController : MonoBehaviour
     public void GetHit(float dmg)
     {
         playerStats.Health -= Mathf.Clamp(dmg - playerStats.Defense, 0, dmg);
+        healthBar.SetHealth((int)playerStats.Health);
         Debug.Log("Hit");
         if(playerStats.Health <= 0)
         {
