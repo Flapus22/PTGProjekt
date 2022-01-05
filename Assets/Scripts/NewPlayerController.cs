@@ -6,11 +6,14 @@ using UnityEngine.InputSystem;
 public class NewPlayerController : MonoBehaviour
 {
     //public Rigidbody rigidbody { get; set; }
+    public HealthBar healthBar;
     public float speed = 10;
     public float dashDistance = 10;
 
     public bool canDash = true;
     private bool ifAim = true;
+    private Stats playerStats;
+    public bool isAlive;
 
     public float jumpHigh = 1;
     public float moveDown = 0;
@@ -25,7 +28,9 @@ public class NewPlayerController : MonoBehaviour
 
     void Start()
     {
+        playerStats = new Stats();
         characterController = GetComponent<CharacterController>();
+        healthBar.SetMaxHealth((int)playerStats.MaxHealth);
     }
 
     void Update()
@@ -47,6 +52,23 @@ public class NewPlayerController : MonoBehaviour
             {
                 move.y -= Time.deltaTime * 3;
             }
+        }
+    }
+    public void Die()
+    {
+        isAlive = false;
+        GetComponent<PlayerInput>().enabled = false;
+        GetComponent<Renderer>().enabled = false;
+    }
+
+    public void GetHit(float dmg)
+    {
+        playerStats.Health -= Mathf.Clamp(dmg - playerStats.Defense, 0, dmg);
+        healthBar.SetHealth((int)playerStats.Health);
+        Debug.Log("Hit");
+        if(playerStats.Health <= 0)
+        {
+            Die();
         }
     }
 
