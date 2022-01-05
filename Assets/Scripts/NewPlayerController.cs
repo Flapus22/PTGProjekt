@@ -10,7 +10,7 @@ public class NewPlayerController : MonoBehaviour
     public float speed = 10;
     public float dashDistance = 10;
 
-    public bool canJump = true;
+    public bool canDash = true;
     private bool ifAim = true;
     private Stats playerStats;
     public bool isAlive;
@@ -86,14 +86,18 @@ public class NewPlayerController : MonoBehaviour
         }
     }
 
-    //void OnDash(InputValue value)
-    //{
-    //    if (move.x != 0)
-    //    {
-    //        dash = dashDistance * value.Get<float>();
-    //    }
-    //    if (move.x < 0) dash *= -1;
-    //}
+    void OnDash(InputValue value)
+    {
+        if (canDash)
+        {
+            if (move.x != 0)
+            {
+                dash = dashDistance * value.Get<float>();
+                canDash = false;
+                StartCoroutine(Dash());
+            }
+        }
+    }
 
     void OnMousePosition(InputValue value)
     {
@@ -110,9 +114,8 @@ public class NewPlayerController : MonoBehaviour
 
     Vector3 Move()
     {
-        var result = new Vector3();
-        result = move * speed;
-        result.x += dash;
+        var result = move * speed;
+        result.x += move.x > 0 ? dash : -dash;
         return result;
     }
 
@@ -120,4 +123,13 @@ public class NewPlayerController : MonoBehaviour
     {
         move.y = jumpHigh;
     }
+
+    public IEnumerator Dash()
+    {
+        yield return new WaitForSeconds(0.2f);
+        dash = 0;
+        yield return new WaitForSeconds(3);
+        canDash = true;
+    }
+    
 }
