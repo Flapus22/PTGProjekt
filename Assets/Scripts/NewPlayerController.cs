@@ -57,6 +57,7 @@ public class NewPlayerController : MonoBehaviour
     public void Die()
     {
         isAlive = false;
+        GetComponent<PlayerInput>().enabled = false;
         GetComponent<Renderer>().enabled = false;
     }
 
