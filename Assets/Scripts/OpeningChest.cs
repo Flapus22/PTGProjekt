@@ -5,11 +5,21 @@ using UnityEngine.InputSystem;
 
 public class OpeningChest : MonoBehaviour
 {
-    public float openingSpeed = 555f;
+    [SerializeField] private Animator myAnimationController;
 
-    private void OnTriggerEnter(Collider other) //trzeba siê upewniæ, ¿e przeciwnicy tego nie zaktywuj¹
+    private void OnTriggerEnter(Collider other)
     {
-        transform.Rotate(Vector3.right, -10f); //-openingSpeed* Time.deltaTime); //trzeba zrobiæ aby powoli siê otwiera³o do k¹ta -55, 
-        GetComponent<Collider>().enabled = false;
+        if (other.CompareTag("Player"))
+        {
+            myAnimationController.SetBool("PlayOpen", true);
+            GetComponent<Collider>().enabled = false;
+        }
     }
+    //public float openingSpeed = 555f;
+
+    //private void OnTriggerEnter(Collider other) //trzeba siê upewniæ, ¿e przeciwnicy tego nie zaktywuj¹
+    //{
+    //    transform.Rotate(Vector3.right, -10f); //-openingSpeed* Time.deltaTime); //trzeba zrobiæ aby powoli siê otwiera³o do k¹ta -55, 
+    //    GetComponent<Collider>().enabled = false;
+    //}
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1072875403954248841}
   - component: {fileID: 2082984075012241337}
   - component: {fileID: 1215738680602531122}
+  - component: {fileID: 7420100669220424985}
   m_Layer: 0
   m_Name: WiekoTrumny
   m_TagString: Untagged
@@ -112,6 +113,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c273cf4fe9be04da7600690657dbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnimationController: {fileID: 7420100669220424985}
+--- !u!95 &7420100669220424985
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129511175575781000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 987b8cf89b9bd0943a2b623c34128ca5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7609554459591525321
 GameObject:
   m_ObjectHideFlags: 0

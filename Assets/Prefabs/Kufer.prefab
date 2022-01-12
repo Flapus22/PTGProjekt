@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 2027267408880694502}
   - component: {fileID: 6612926582696785782}
   - component: {fileID: 7696722068378032854}
+  - component: {fileID: 1475992608332523412}
   m_Layer: 0
   m_Name: Gora
   m_TagString: Untagged
@@ -347,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9adc31ada97ae243ab0bd9fa7d266d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openingSpeed: 25
+  myAnimationController: {fileID: 0}
 --- !u!65 &7696722068378032854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -361,6 +362,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.03, y: 9.07, z: 2.72}
   m_Center: {x: 0, y: -1.01, z: 3.44}
+--- !u!95 &1475992608332523412
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196627858126754510}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f1513b1b2c571d40aa2ca1f99f8eef9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7006198210113806671
 GameObject:
   m_ObjectHideFlags: 0
