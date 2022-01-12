@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private Animator myAnimationController; //animacja
+
     private Transform player;
     private bool isPlayerAlive;
     private float dist;

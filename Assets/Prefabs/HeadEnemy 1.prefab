@@ -169,6 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8153074674330834171}
+  - component: {fileID: 3080746545090384244}
   m_Layer: 0
   m_Name: Bone.002
   m_TagString: Untagged
@@ -192,6 +193,26 @@ Transform:
   m_Father: {fileID: 610804688749371512}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &3080746545090384244
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424612886568074284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47b1f346faa474849a8dd3b8964b0bff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4439989105031395143
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7950869496950825721}
+  - component: {fileID: 8050891935711306366}
   m_Layer: 0
   m_Name: Bone.003
   m_TagString: Untagged
@@ -371,15 +393,35 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9144711353566174657}
-  m_LocalRotation: {x: 0.03526031, y: -0.14218217, z: 0.98846984, w: 0.038319893}
-  m_LocalPosition: {x: -0.006552458, y: -0.0046995375, z: 0.0015581303}
-  m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1.0000024}
+  m_LocalRotation: {x: 0.035260346, y: -0.1421822, z: 0.98846984, w: 0.03831987}
+  m_LocalPosition: {x: -0.0065524625, y: -0.0046995343, z: 0.0015581299}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1986213979045760306}
   m_Father: {fileID: 610804688749371512}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8050891935711306366
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9144711353566174657}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b8a1975947d85a9478dc41f0e4c98c3f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9187631718697740892
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,3 +525,5 @@ MonoBehaviour:
   cooldown: 1
   moveSpeed: 5
   howClose: 8
+  startWaitTime: 0
+  moveSpots: []
