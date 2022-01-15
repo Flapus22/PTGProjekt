@@ -28,7 +28,7 @@ public class NewPlayerController : MonoBehaviour
 
     void Start()
     {
-        playerStats = new Stats();
+        playerStats = GetComponent<Stats>();
         characterController = GetComponent<CharacterController>();
         healthBar.SetMaxHealth((int)playerStats.MaxHealth);
     }
@@ -63,13 +63,18 @@ public class NewPlayerController : MonoBehaviour
 
     public void GetHit(float dmg)
     {
-        playerStats.Health -= Mathf.Clamp(dmg - playerStats.Defense, 0, dmg);
+        playerStats.Health -= Mathf.Clamp(dmg, 0, dmg);
         healthBar.SetHealth((int)playerStats.Health);
         Debug.Log("Hit");
         if(playerStats.Health <= 0)
         {
             Die();
         }
+    }
+
+    void OnFire()
+    {
+        
     }
 
     void OnMove(InputValue value)
