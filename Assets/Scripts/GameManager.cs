@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -53,6 +55,12 @@ public class GameManager : MonoBehaviour
     private void HandleVictory()
     {
 
+    }
+
+    public void ReturnButton()
+    {
+        int sceneID = 0;
+        SceneManager.LoadScene(sceneID);
     }
 }
 public enum GameState
