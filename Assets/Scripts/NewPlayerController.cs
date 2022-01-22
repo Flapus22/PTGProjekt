@@ -23,6 +23,7 @@ public class NewPlayerController : MonoBehaviour
     Vector3 mousePosition = new Vector3();
     public SphereCollider spher;
     public GameObject throwPrefab;
+    public int point = 0;
 
     public CharacterController characterController;
 
@@ -60,6 +61,16 @@ public class NewPlayerController : MonoBehaviour
         GetComponent<PlayerInput>().enabled = false;
     }
 
+    public void GetHit(float dmg)
+    {
+        playerStats.Health -= dmg;
+        healthBar.SetHealth((int)playerStats.Health);
+        Debug.Log("Hit");
+        if (playerStats.Health <= 0)
+        {
+            Die();
+        }
+    }
     public void GetHit()
     {
         playerStats.Health = 0;
@@ -134,6 +145,11 @@ public class NewPlayerController : MonoBehaviour
         dash = 0;
         yield return new WaitForSeconds(3);
         canDash = true;
+    }
+
+    public void GetPoint()
+    {
+        point++;
     }
     
 }

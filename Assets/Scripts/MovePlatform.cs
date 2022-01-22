@@ -46,7 +46,7 @@ public class MovePlatform : MonoBehaviour
             MeshFilter meshFilter = GetComponent<MeshFilter>();
             //Gizmos.DrawWireCube(ghostPosition, ghostSize);
 
-            Gizmos.DrawWireMesh(meshFilter.mesh, ghostPosition, rotate, ghostSize);
+            Gizmos.DrawWireMesh(meshFilter.sharedMesh, ghostPosition, rotate, ghostSize);
         }
     }
 #endif
