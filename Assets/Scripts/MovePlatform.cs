@@ -20,25 +20,34 @@ public class MovePlatform : MonoBehaviour
     void Update()
     {
         float velocity = 50f / delta.sqrMagnitude;
-        float change = (Mathf.Sin(Time.timeSinceLevelLoad*velocity) + 1f) / 2f;
+        float change = (Mathf.Sin(Time.timeSinceLevelLoad * velocity) + 1f) / 2f;
         rigidbody.position = Vector3.Lerp(startPosition, startPosition + delta, change);
     }
 
 
 #if UNITY_EDITOR
+
+    public bool visibleGizmo;
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.gray;
-
-        if(Selection.activeTransform==transform)
+        if (visibleGizmo)
         {
-            Gizmos.color = Color.yellow;
+
+            Gizmos.color = Color.gray;
+
+            if (Selection.activeTransform == transform)
+            {
+                Gizmos.color = Color.yellow;
+            }
+
+            Vector3 ghostPosition = transform.position + delta;
+            Vector3 ghostSize = transform.localScale;
+            var rotate = transform.rotation;
+            MeshFilter meshFilter = GetComponent<MeshFilter>();
+            //Gizmos.DrawWireCube(ghostPosition, ghostSize);
+
+            Gizmos.DrawWireMesh(meshFilter.mesh, ghostPosition, rotate, ghostSize);
         }
-
-        Vector3 ghostPosition = transform.position + delta;
-        Vector3 ghostSize = transform.rotation * transform.localScale * 2f;
-
-        Gizmos.DrawWireCube(ghostPosition, ghostSize);
     }
 #endif
 }
