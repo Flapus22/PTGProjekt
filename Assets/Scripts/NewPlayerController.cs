@@ -58,12 +58,11 @@ public class NewPlayerController : MonoBehaviour
     {
         isAlive = false;
         GetComponent<PlayerInput>().enabled = false;
-        GetComponent<Renderer>().enabled = false;
     }
 
-    public void GetHit(float dmg)
+    public void GetHit()
     {
-        playerStats.Health -= Mathf.Clamp(dmg, 0, dmg);
+        playerStats.Health = 0;
         healthBar.SetHealth((int)playerStats.Health);
         Debug.Log("Hit");
         if(playerStats.Health <= 0)
