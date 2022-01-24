@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 6511097050533086406}
   - component: {fileID: 6511097050533086405}
   - component: {fileID: 8593181156776157906}
-  - component: {fileID: 9129021665220884483}
+  - component: {fileID: 6511097050533086416}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -492,7 +492,7 @@ MonoBehaviour:
   MaxHealth: 100
   Attack: 10
   BaseAttack: 10
---- !u!95 &9129021665220884483
+--- !u!95 &6511097050533086416
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -501,8 +501,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3158283522230368447}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 03d63b6012c04304faeeb365623fadc5, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 2a49af88889894346a80d4d529402362, type: 3}
+  m_Controller: {fileID: 9100000, guid: d6020fdbb42553e42bcd30f7c8c23d90, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

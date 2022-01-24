@@ -277,7 +277,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2196627858126754510}
-  m_LocalRotation: {x: -0.038453516, y: -0, z: -0, w: 0.9992604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.50230765, z: -0.61548185}
   m_LocalScale: {x: 0.97225595, y: 0.15061058, z: 0.57187176}
   m_ConstrainProportionsScale: 0
@@ -285,7 +285,7 @@ Transform:
   - {fileID: 5869072698886078042}
   m_Father: {fileID: 7871692741547193536}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -4.408, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4859717781155609851
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9adc31ada97ae243ab0bd9fa7d266d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myAnimationController: {fileID: 0}
+  myAnimationController: {fileID: 1475992608332523412}
 --- !u!65 &7696722068378032854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -475,6 +475,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7871692741547193536}
+  - component: {fileID: 6705444252998577729}
+  - component: {fileID: 7496994355486828475}
+  - component: {fileID: 7561894708894583893}
   m_Layer: 0
   m_Name: Kufer
   m_TagString: Untagged
@@ -500,3 +503,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6705444252998577729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383104561407372922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.03, y: 9.07, z: 2.72}
+  m_Center: {x: 0, y: -1.01, z: 3.44}
+--- !u!95 &7496994355486828475
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383104561407372922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f1513b1b2c571d40aa2ca1f99f8eef9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7561894708894583893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383104561407372922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9adc31ada97ae243ab0bd9fa7d266d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimationController: {fileID: 1475992608332523412}
