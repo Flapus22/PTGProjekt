@@ -4152,6 +4152,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 46324358}
     m_Modifications:
+    - target: {fileID: 4230497816419393866, guid: e36603ec23c98a34c9a341cf0f8d8322, type: 3}
+      propertyPath: visibleGizmo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4230497816419393867, guid: e36603ec23c98a34c9a341cf0f8d8322, type: 3}
       propertyPath: m_Name
       value: MovePlatform (1)

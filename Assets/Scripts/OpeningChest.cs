@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class OpeningChest : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class OpeningChest : MonoBehaviour
     private IEnumerator Load()
     {
         yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(2);
     }
     //public float openingSpeed = 555f;
 
