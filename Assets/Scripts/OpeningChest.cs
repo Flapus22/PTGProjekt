@@ -13,7 +13,13 @@ public class OpeningChest : MonoBehaviour
         {
             myAnimationController.SetBool("PlayOpen", true);
             GetComponent<Collider>().enabled = false;
+            StartCoroutine(Load());
         }
+    }
+
+    private IEnumerator Load()
+    {
+        yield return new WaitForSeconds(2);
     }
     //public float openingSpeed = 555f;
 
